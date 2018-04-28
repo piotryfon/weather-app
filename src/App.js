@@ -4,8 +4,18 @@ import Form from './components/Form';
 import Weather from './components/Weather';
 
 const API_KEY = "7aca2942856bab3c48dcd8e20dcf3d4a";
-const adress = "http://api.openweathermap.org/data/2.5/weather?id=756135&appid=7aca2942856bab3c48dcd8e20dcf3d4a&units=metric";
+
 class App extends React.Component {
+    
+    state = {
+        temperature: undefined,
+        city: undefined,
+        country: undefined,
+        humidity: undefined,
+        description: undefined,
+        error: undefined,
+        
+    }
     
     getWeather = async (e) => {
         e.preventDefault();
@@ -16,13 +26,29 @@ class App extends React.Component {
         const data = await api_call.json();
 
         console.log(data);
+
+        this.setState({
+            temperature: data.main.temp,
+            city: data.name,
+            country: data.sys.country,
+            humidity: data.main.humidity,
+            description: data.weather[0].description,
+            error: "",
+        });
     }
     render() {
         return(
             <div>
                 <Titles />
                 <Form getWeather={this.getWeather} />
-                <Weather />
+                <Weather 
+                temperature={this.state.temperature}
+                city={this.state.city}
+                country={this.state.country}
+                humidity={this.state.humidity}
+                description={this.state.description}
+                error={this.state.error}
+                />
             </div>
         )
     }
