@@ -29,13 +29,27 @@ class App extends React.Component {
         console.log(data);
         console.log(data1);
         this.setState({
-            temperature: data.main.temp,
             city: data.name,
             country: data.sys.country,
+
+            temperature: data.main.temp,
             humidity: data.main.humidity,
             description: data.weather[0].description,
+            pressure: data.main.pressure,
+            wind: data.wind.speed,
+
             time1: data1.list[1].dt_txt,
             temperature1: data1.list[1].main.temp, 
+            description1: data1.list[1].weather[0].description,
+            pressure1: data1.list[1].main.pressure,
+            wind1: data1.list[1].wind.speed,
+
+            time2: data1.list[3].dt_txt,
+            temperature2: data1.list[3].main.temp, 
+            description2: data1.list[3].weather[0].description,
+            pressure2: data1.list[3].main.pressure,
+            wind2: data1.list[3].wind.speed,
+            
             error: "",
         });
         } else {
@@ -45,8 +59,21 @@ class App extends React.Component {
                 country: undefined,
                 humidity: undefined,
                 description: undefined,
+                pressure: undefined,
+                wind: undefined,
+
                 time1: undefined,
                 temperature1: undefined,
+                description1: undefined,
+                pressure1: undefined,
+                wind1: undefined,
+                time2: undefined,
+
+                temperature2: undefined,
+                description2: undefined,
+                pressure2: undefined,
+                wind2: undefined,
+
                 error: "Please enter the value.",
             });
         }
@@ -62,8 +89,18 @@ class App extends React.Component {
                 country={this.state.country}
                 humidity={this.state.humidity}
                 description={this.state.description}
+                pressure={this.state.pressure}
+                wind={this.state.wind}
                 time1={this.state.time1}
                 temperature1={this.state.temperature1}
+                description1={this.state.description1}
+                pressure1={this.state.pressure1}
+                wind1={this.state.wind1}
+                time2={this.state.time2}
+                temperature2={this.state.temperature2}
+                description2={this.state.description2}
+                pressure2={this.state.pressure2}
+                wind2={this.state.wind2}
                 error={this.state.error}
                 />
             </div>
