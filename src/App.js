@@ -17,7 +17,7 @@ class App extends React.Component {
         
     }
     
-    getWeather = async (e) => {
+    getWeather = async(e) => {
         e.preventDefault();
         const city = e.target.elements.city.value;
         const country = e.target.elements.country.value;
@@ -75,9 +75,12 @@ class App extends React.Component {
                 wind2: undefined,
 
                 error: "Please enter the value.",
+                
             });
+            
         }
     }
+    
     render() {
         return(
             <div id="mainDiv">
