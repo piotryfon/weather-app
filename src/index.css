@@ -3,7 +3,7 @@ body {
     padding: 0;
     font-family: sans-serif;
     color: #ffffff;
-    background-color: rgb(20, 13, 116);
+    background: url(./img/background-02.png);
   }
   #mainDiv {
     width: 90%;
@@ -13,7 +13,10 @@ body {
   }
   .input{
     margin: 10px;
+    font-size: 16px;
   }
   .btn{
-    background-color: greenyellow;
+    color: #ffffff;
+    font-size: 16px;
+    background-color: #2d42fe;
   }
